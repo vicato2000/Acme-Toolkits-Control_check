@@ -1,0 +1,25 @@
+inventor.rustor.list.label.code = Código
+inventor.rustor.list.label.theme = Tema
+inventor.rustor.list.label.share = Cuota
+inventor.rustor.list.label.itemName = Item
+
+inventor.rustor.form.label.code = Código
+inventor.rustor.form.label.theme = Tema
+inventor.rustor.form.label.statement = Declaracion
+inventor.rustor.form.label.creationMoment = Momento de Creación
+inventor.rustor.form.label.startDate = Momento de Inicio
+inventor.rustor.form.label.finishDate = Momento de Terminación
+inventor.rustor.form.label.share = Cuota
+inventor.rustor.form.label.moreInfor = Mas información
+inventor.rustor.form.button.update = Actualizar
+inventor.rustor.form.button.delete = Eliminar
+inventor.rustor.form.button.create = Crear
+inventor.rustor.form.button.item = Item
+inventor.rustor.form.label.itemName = Item
+
+inventor.rustor.form.error.spamWord = El texto no puede contener palabras spam
+inventor.rustor.form.error.acceptedCurrency = La divisa introducida no existe o está prohibida en el sistema
+inventor.rustor.form.error.positiveValue = La cantidad debe ser positiva
+inventor.rustor.form.error.acceptedPeriodTime.start = La fecha de inicio debe ser, como mínimo, un mes posterior a la de creación
+inventor.rustor.form.error.acceptedPeriodTime.finish = La fecha de fin debe ser, como mínimo, una semana después de la de inicio
+inventor.rustor.form.error.invalidCode = La fecha del código debe coincidir con la fecha de creación

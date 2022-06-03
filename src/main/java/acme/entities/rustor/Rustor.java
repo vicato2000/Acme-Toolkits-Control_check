@@ -1,4 +1,4 @@
-package acme.entities.chimpum;
+package acme.entities.rustor;
 
 import java.util.Date;
 
@@ -24,7 +24,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Chimpum extends AbstractEntity{
+public class Rustor extends AbstractEntity{
 	
 	// Serialisation identifier -----------------------------------------------
 
@@ -33,17 +33,17 @@ public class Chimpum extends AbstractEntity{
 	// Attributes --------------------------------------------------------------
 	
 	
-	@Pattern(regexp ="^[2-9]{1}[0-9]{1}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}-[A-Z]{3}(-[0-9])?$")
+	@Pattern(regexp ="^[0-9]{2}-[0-3]{1}[0-9]{1}[0-1]{1}[0-2]{1}[2-9]{1}[0-9]{1}$")
 	@NotBlank
 	protected String code;
 	
 	@NotBlank
 	@Length(min = 1, max = 100)
-	protected String title;
+	protected String theme;
 	
 	@NotBlank
 	@Length(min = 1, max = 255)
-	protected String description;
+	protected String statement;
 	
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
@@ -60,10 +60,10 @@ public class Chimpum extends AbstractEntity{
 	
 	@NotNull
 	@Valid
-	protected Money budget;
+	protected Money share;
 	
 	@URL
-	protected String link;
+	protected String moreInfo;
 	
 	// Relationships ----------------------------------------------------------
 	

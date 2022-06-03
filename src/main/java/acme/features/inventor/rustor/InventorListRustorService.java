@@ -1,12 +1,12 @@
-package acme.features.inventor.chimpum;
+package acme.features.inventor.rustor;
 
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.chimpum.Chimpum;
 import acme.entities.item.Item;
+import acme.entities.rustor.Rustor;
 import acme.features.inventor.item.InventorItemRepository;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
@@ -15,12 +15,12 @@ import acme.roles.Inventor;
 import acme.utils.ChangeCurrencyLibrary;
 
 @Service
-public class InventorListChimpumService implements AbstractListService<Inventor, Chimpum>{
+public class InventorListRustorService implements AbstractListService<Inventor, Rustor>{
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected InventorChimpumRepository inventorChimpumRepository;
+	protected InventorRustorRepository inventorRustorRepository;
 	
 	@Autowired
 	protected InventorItemRepository invetorItemRepository;
@@ -32,7 +32,7 @@ public class InventorListChimpumService implements AbstractListService<Inventor,
 
 
 	@Override
-	public boolean authorise(final Request<Chimpum> request) {
+	public boolean authorise(final Request<Rustor> request) {
 		assert request != null;
 
 		boolean result;
@@ -43,31 +43,31 @@ public class InventorListChimpumService implements AbstractListService<Inventor,
 	}
 
 	@Override
-	public void unbind(final Request<Chimpum> request, final Chimpum entity, final Model model) {
+	public void unbind(final Request<Rustor> request, final Rustor entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
 
-		final Item i = this.inventorChimpumRepository.findItemByChimpumId(entity.getId());
+		final Item i = this.inventorRustorRepository.findItemByRustorId(entity.getId());
 		
-		request.unbind(entity, model, "code", "title", "budget");
+		request.unbind(entity, model, "code", "theme", "share");
 		model.setAttribute("itemName", i.getName());
 		
 	}
 
 	@Override
-	public Collection<Chimpum> findMany(final Request<Chimpum> request) {
+	public Collection<Rustor> findMany(final Request<Rustor> request) {
 		assert request != null;
 
-		final Collection<Chimpum> result;
+		final Collection<Rustor> result;
 
-		result = this.inventorChimpumRepository.findAllMine(request.getPrincipal().getAccountId());
+		result = this.inventorRustorRepository.findAllMine(request.getPrincipal().getAccountId());
 		
 		final String defaultCurrency = this.invetorItemRepository.findDefaultCurrency();
 		
 		result.stream()
-			.filter(c->!(c.getBudget().getCurrency().equals(defaultCurrency)))
-			.forEach(c->c.setBudget(this.changeLibrary.computeMoneyExchange(c.getBudget(), defaultCurrency).getTarget()));
+			.filter(c->!(c.getShare().getCurrency().equals(defaultCurrency)))
+			.forEach(c->c.setShare(this.changeLibrary.computeMoneyExchange(c.getShare(), defaultCurrency).getTarget()));
 		
 		return result;
 	}

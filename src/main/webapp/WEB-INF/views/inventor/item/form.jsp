@@ -32,10 +32,10 @@
 		
 		<jstl:choose>
 			<jstl:when test="${showChimpum}">
-				<acme:button code="inventor.item.form.button.chimpumShow" action="/inventor/chimpum/show?id=${chimpumId}"/>		
+				<acme:button code="inventor.item.form.button.rustorShow" action="/inventor/rustor/show?id=${chimpumId}"/>		
 			</jstl:when>
 			<jstl:otherwise>
-				<acme:button code="inventor.item.form.button.chimpumCreate" action="/inventor/chimpum/create?itemId=${id}"/>
+				<acme:button code="inventor.item.form.button.rustorCreate" action="/inventor/rustor/create?itemId=${id}"/>
 			</jstl:otherwise>
 		</jstl:choose>
 	

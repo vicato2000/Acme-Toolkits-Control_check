@@ -1,0 +1,25 @@
+inventor.rustor.list.label.code = Code
+inventor.rustor.list.label.theme = Theme
+inventor.rustor.list.label.share = Share
+inventor.rustor.list.label.itemName = Item
+
+inventor.rustor.form.label.code = Code
+inventor.rustor.form.label.theme = Theme
+inventor.rustor.form.label.statement = Statement
+inventor.rustor.form.label.creationMoment = Creation Moment
+inventor.rustor.form.label.startDate = Start Date
+inventor.rustor.form.label.finishDate = Finish Date
+inventor.rustor.form.label.share = Share
+inventor.rustor.form.label.moreInfo = More infor
+inventor.rustor.form.button.update = Update
+inventor.rustor.form.button.delete = Delete
+inventor.rustor.form.button.create = Create
+inventor.rustor.form.button.item = Item
+inventor.rustor.form.label.itemName = Item
+
+inventor.rustor.form.error.spamWord = The text may not contain spam words
+inventor.rustor.form.error.acceptedCurrency = The chosen currency is not handled by the system
+inventor.rustor.form.error.positiveValue = The amount must be positive
+inventor.rustor.form.error.acceptedPeriodTime.start = The start date must be, at least, one month after the creation moment
+inventor.rustor.form.error.acceptedPeriodTime.finish = The finish date must be, at least, one week after the creation moment
+inventor.rustor.form.error.invalidCode = The date of the code must match with the creation moment

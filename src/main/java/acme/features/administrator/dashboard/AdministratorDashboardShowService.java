@@ -54,11 +54,11 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		final Map<Status, Double>				  deviationBudgetOfPatronagesByStatus;
 		final Map<Status, Double>				  minBudgetOfPatronagesByStatus;
 		final Map<Status, Double>				  maxBudgetOfPatronagesByStatus;
-		final double							  ratioOfArtefactsWithChimpum;
-		final Map<String, Double>				  averageChimpumOfArtefactByCurrency;
-		final Map<String, Double>				  deviationChimpumOfArtefactByCurrency;
-		final Map<String, Double>				  maxChimpumOfArtefactByCurrency;
-		final Map<String, Double>				  minChimpumOfArtefactByCurrency;
+		final double							  ratioOfArtefactsWithRustor;
+		final Map<String, Double>				  averageRustorOfArtefactByCurrency;
+		final Map<String, Double>				  deviationRustorOfArtefactByCurrency;
+		final Map<String, Double>				  maxRustorOfArtefactByCurrency;
+		final Map<String, Double>				  minRustorOfArtefactByCurrency;
 		
 		final String[] acceptedCurrencies = this.repository.getAcceptedCurrencies().split(",");
 		final List<String> currencies = new ArrayList<>();
@@ -160,26 +160,26 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 				);
 		}
 		
-		ratioOfArtefactsWithChimpum = this.repository.ratioOfArtefactsWithChimpum(ItemType.TOOL);
+		ratioOfArtefactsWithRustor = this.repository.ratioOfArtefactsWithRustor(ItemType.TOOL);
 		
-		averageChimpumOfArtefactByCurrency = new HashMap<String, Double>();
+		averageRustorOfArtefactByCurrency = new HashMap<String, Double>();
 		for(int i=0; i<currencies.size(); i++) {
-			averageChimpumOfArtefactByCurrency.put(currencies.get(i), this.repository.averageChimpumOfArtefactByCurrency(currencies.get(i)));
+			averageRustorOfArtefactByCurrency.put(currencies.get(i), this.repository.averageRustorOfArtefactByCurrency(currencies.get(i)));
 		}
 		
-		deviationChimpumOfArtefactByCurrency = new HashMap<String, Double>();
+		deviationRustorOfArtefactByCurrency = new HashMap<String, Double>();
 		for(int i=0; i<currencies.size(); i++) {
-			deviationChimpumOfArtefactByCurrency.put(currencies.get(i), this.repository.deviationChimpumOfArtefactByCurrency(currencies.get(i)));
+			deviationRustorOfArtefactByCurrency.put(currencies.get(i), this.repository.deviationRustorOfArtefactByCurrency(currencies.get(i)));
 		}
 		
-		maxChimpumOfArtefactByCurrency = new HashMap<String, Double>();
+		maxRustorOfArtefactByCurrency = new HashMap<String, Double>();
 		for(int i=0; i<currencies.size(); i++) {
-			maxChimpumOfArtefactByCurrency.put(currencies.get(i), this.repository.maxChimpumOfArtefactByCurrency(currencies.get(i)));
+			maxRustorOfArtefactByCurrency.put(currencies.get(i), this.repository.maxRustorOfArtefactByCurrency(currencies.get(i)));
 		}
 		
-		minChimpumOfArtefactByCurrency = new HashMap<String, Double>();
+		minRustorOfArtefactByCurrency = new HashMap<String, Double>();
 		for(int i=0; i<currencies.size(); i++) {
-			minChimpumOfArtefactByCurrency.put(currencies.get(i), this.repository.minChimpumOfArtefactByCurrency(currencies.get(i)));
+			minRustorOfArtefactByCurrency.put(currencies.get(i), this.repository.minRustorOfArtefactByCurrency(currencies.get(i)));
 		}
 		
 		result.setNumberOfComponents(numberOfComponents);
@@ -197,11 +197,11 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		result.setDeviationBudgetOfPatronagesByStatus(deviationBudgetOfPatronagesByStatus);
 		result.setMinBudgetOfPatronagesByStatus(minBudgetOfPatronagesByStatus);
 		result.setMaxBudgetOfPatronagesByStatus(maxBudgetOfPatronagesByStatus);
-		result.setRatioOfArtefactsWithChimpum(ratioOfArtefactsWithChimpum);
-		result.setAverageChimpumOfArtefactByCurrency(averageChimpumOfArtefactByCurrency);
-		result.setDeviationChimpumOfArtefactByCurrency(deviationChimpumOfArtefactByCurrency);
-		result.setMaxChimpumOfArtefactByCurrency(maxChimpumOfArtefactByCurrency);
-		result.setMinChimpumOfArtefactByCurrency(minChimpumOfArtefactByCurrency);
+		result.setRatioOfArtefactsWithRustor(ratioOfArtefactsWithRustor);
+		result.setAverageRustorOfArtefactByCurrency(averageRustorOfArtefactByCurrency);
+		result.setDeviationRustorOfArtefactByCurrency(deviationRustorOfArtefactByCurrency);
+		result.setMaxRustorOfArtefactByCurrency(maxRustorOfArtefactByCurrency);
+		result.setMinRustorOfArtefactByCurrency(minRustorOfArtefactByCurrency);
 		
 		return result;
 	}
@@ -222,9 +222,9 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 			"maxRetailPriceOfToolsByCurrency", "numberOfPatronagesByStatus", //
 			"averageBudgetOfPatronagesByStatus", "deviationBudgetOfPatronagesByStatus", //
 			"minBudgetOfPatronagesByStatus", "maxBudgetOfPatronagesByStatus",
-			"ratioOfArtefactsWithChimpum", "averageChimpumOfArtefactByCurrency",
-			"deviationChimpumOfArtefactByCurrency", "maxChimpumOfArtefactByCurrency",
-			"minChimpumOfArtefactByCurrency");
+			"ratioOfArtefactsWithRustor", "averageRustorOfArtefactByCurrency",
+			"deviationRustorOfArtefactByCurrency", "maxRustorOfArtefactByCurrency",
+			"minRustorOfArtefactByCurrency");
 		
 		this.library.createDashboard(entity, model);
 		
